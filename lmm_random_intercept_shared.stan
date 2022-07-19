@@ -18,7 +18,7 @@ parameters {
 model {
   vector[N] mu_PP;
   //priors
-  beta[2]~normal(0,0.6); sigma=h²
+  beta[2]~normal(0,0.6); //sigma=h²
   u ~ normal(0, sigma_u); //PP clusters random effects
      
   // likelihood 
