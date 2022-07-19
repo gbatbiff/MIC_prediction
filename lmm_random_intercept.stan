@@ -20,7 +20,7 @@ model {
   //priors
 
   u ~ normal(0, sigma_u); //PP random effects
-  beta[2]~normal(0,0.6);
+  beta[2]~normal(0,0.6); //sigma=h²
 
   // likelihood
   for (i in 1:N){
