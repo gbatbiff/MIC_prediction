@@ -11,14 +11,14 @@ parameters {
   vector[2] beta; //intercept and slope
   vector[J] u; // varying intercept for PP clusters
   real<lower=0> sigma_e; //error sd
-  real<lower=0> sigma_u; //subj sd
+  real<lower=0> sigma_u; //PP cluster sd
 }
 
 
 model {
   vector[N] mu_PP;
   //priors
-  beta[2]~normal(0,0.6);
+  beta[2]~normal(0,0.6); sigma=h²
   u ~ normal(0, sigma_u); //PP clusters random effects
      
   // likelihood 
