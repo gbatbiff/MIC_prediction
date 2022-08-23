@@ -27,16 +27,15 @@ phen<-read.delim(phen_file,sep='',header = F)
 #phen$V2<-gsub("X","",phen$V2)
 #phen$V2<-gsub(".fna","",phen$V2)
 colnames(phen)[1]<-"ID"
-colnames(phen)[2]<-"MIC"
+colnames(phen)[2]<-"sim_cont_mic"
 ###
 tdd$ID<-rownames(tdd)
 
 mm<-merge(tdd,phen,by="ID")
 rownames(mm)<-mm$ID
 #mm$ID<-NULL
-
-mm$sim_cont_mic<-rescale(mm$MIC,to=c(0.25,16))
-mm$MIC<-NULL
+#mm$sim_cont_mic<-rescale(mm$MIC,to=c(0.25,16))
+#mm$MIC<-NULL
 
 
 st<-read.delim(lineages_file,header = F)
